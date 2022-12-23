@@ -1,5 +1,5 @@
 import os
-
+import sys
 
 if  os.system("which upower &> /dev/null"):
     print ("You need upower to be installed on system")
@@ -22,5 +22,8 @@ for line in buff.split("\n"):
 
 for element in b:
     if len(element) > 1:
-        print (" ".join(element))
+        if "-raw" in sys.argv:
+            print (element[-1], end=" ")
+        else:
+            print (" ".join(element))
 
